@@ -15,7 +15,29 @@ module.exports={
     createSurvey,
     surveyIndex,
     createAssignSurvey,
-    assignsurveyIndex
+    assignsurveyIndex,
+    deleteassignsurveyIndex
+
+}
+
+
+async function deleteassignsurveyIndex(req,res){
+
+
+    if(!req.body.hasOwnProperty("id")){
+        return res.status(400).json( {
+            status: 400,
+            message: "id is required"
+        }); 
+    }
+
+    let data= await AssignSurvey.remove({_id:mongoose.Types.ObjectId(req.body.id)});
+
+    return res.status(200).json( {
+        status: 200,
+        message: "Successfully Removed"
+    }); 
+
 
 }
 

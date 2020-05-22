@@ -13,9 +13,17 @@ router.post('/create-assign-survey',createAssignSurvey)
 
 router.post('/index-assign-survey',assignsurveyIndex)
 
+router.post('/delete-assign-survey',deleteassignsurveyIndex)
+
+
 
 module.exports = router;
 
+
+async function deleteassignsurveyIndex(req,res){
+
+    await userService.deleteassignsurveyIndex(req,res);
+}
 
 async function createAssignSurvey(req,res){
 
